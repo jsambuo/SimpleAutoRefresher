@@ -18,6 +18,10 @@ function stop(tabId) {
     clearInterval(timerIds[tabId]);
 }
 
+chrome.tabs.onRemoved.addListener(function(tabId) {
+    stop(tabId);
+});
+
 // var timerId;
 
 // chrome.runtime.onInstalled.addListener(function() {
