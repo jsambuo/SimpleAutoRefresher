@@ -3,12 +3,19 @@
   <head>
     <title>rfrsh</title>
     <script src="popup.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans" />
   </head>
   <body>
-    <h1>rfrsh</h1>
+    <span><img src="rfrshicon_44.png" /><text>RFRSH</text></span>
+    <br/>
     <label id="tabName"></label>
-    <input id="interval" type="text">
-    <button id="refresh">Refresh</button>
-    <button id="stop">Stop</button>
+    <input id="interval" type="number">
+    <br/>
+    <label class="switch">
+      <input id="cbxRefresh" type="checkbox">
+      <span class="slider round"></span>
+    </label>
+    <br/>
   </body>
 </html>

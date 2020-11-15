@@ -1,44 +1,39 @@
 var count = 0;
-var timerIds = {};
-// function paste(){
-//   console.log("this is paste. " + count);
-//   count++;
-//   console.log(this);
-//   console.log("printed this");
-//   return "data";
-// }
+var timers = {};
+
 function refresh(interval, tabId) {
-    timerIds[tabId] = setInterval(function(){
+    var timerId = setInterval(function(){
         chrome.tabs.reload(tabId);
-    }, interval);
-    console.log("setting timer with id:" + timerIds[tabId]);
+    }, interval * 1000);
+    timers[tabId] = {
+        timerId: timerId,
+        interval: interval,
+        active: true
+    };
+
+    // console.log("setting timer with id:" + timerIds[tabId]);
 }
 function stop(tabId) {
-    console.log("stopping timer with ID: " + timerIds[tabId]);
-    clearInterval(timerIds[tabId]);
+    // console.log("stopping timer with ID: " + timerIds[tabId]);
+    timers[tabId].active = false;
+    clearInterval(timers[tabId].timerId);
+}
+function getState(tabId) {
+    var timerInfo = timers[tabId];
+    if (!timerInfo) {
+        timers[tabId] = {
+            active: false,
+            interval: 10
+        };
+    }
+    return timers[tabId];
+}
+
+function updateInterval(tabId, interval) {
+    timers[tabId].interval = interval;
 }
 
 chrome.tabs.onRemoved.addListener(function(tabId) {
     stop(tabId);
+    delete timers[tabId];
 });
-
-// var timerId;
-
-// chrome.runtime.onInstalled.addListener(function() {
-//     chrome.contextMenus.create({
-//       "id": "sampleContextMenu",
-//       "title": "Sample Context Menu",
-//       "contexts": ["selection"]
-//     });
-//   });
-
-//   chrome.runtime.onMessage.addListener(function(message, callback) {
-//     if (message.data == "refresh") {
-//         console.log("refreshing!");
-//         timerId = setInterval(function(){
-//             chrome.tabs.reload(message.tabId);
-//         }, message.interval);
-//     } else if (message.data == "stop") {
-//         clearInterval(timerId);
-//     };
-//   });
