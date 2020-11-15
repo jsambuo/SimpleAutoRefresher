@@ -29,6 +29,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     };
 
+    interval.addEventListener("focusout", function() {
+        console.log("focus out");
+        if (interval.value < 1) {
+            interval.value = 1;
+        }
+    });
+
     chrome.tabs.getSelected(null, function(tab) {
         document.getElementById("tabName").innerHTML = tab.title;
     });
