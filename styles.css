@@ -5,26 +5,55 @@
     background-color:#2B2D42;
     color:#FFFFFF;
     width: 200px;
-    height: 240px;
+    height: 200px;
   }
 
   h1 { font-family: "Open Sans"; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; } 
   h3 { font-family: "Open Sans"; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 15.4px; } 
-  p { font-family: "Open Sans"; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; text-align:center } 
-  text { font-family: "Open Sans"; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; } 
+  p { font-family: "Open Sans"; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; text-align: center; } 
   blockquote { font-family: "Open Sans"; font-size: 21px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; } 
   pre { font-family: "Open Sans"; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5714px; }
+  input { font-family: "Open Sans"; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5714px; }
+  
+  img {
+    vertical-align: middle;
+   }
 
-  div {
+  text.header { font-family: "Open Sans"; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; vertical-align: middle;padding-left: 15px; }  
+  text.general { font-family: "Open Sans"; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; vertical-align: middle;padding-left: 15px; vertical-align: middle;}  
+  span.header {
     display: block;
-    margin-left: auto;
-    margin-right: auto }
+    margin-left: 29px;
+    margin-right: 29px;
+   }
+
+   label { font-family: "Open Sans"; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; vertical-align: middle; } 
+   label.tabName { display: block; padding-bottom: 5px;}
+   label.general { display: block; padding-bottom: 5px;}
+   input#cbxRefresh { padding-left: 10px; }
+
+   span.status {
+    display: block;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 10px;
+   }
+   span.switch {
+    margin-left: 50px;
+   }
+
+   input.interval{ 
+    width:90px;
+    display: block;
+    margin-left: 50px;
+    margin-right: 50px; }
+
 
   .switch {
     position: relative;
     display: inline-block;
-    width: 60px;
-    height: 34px;
+    width: 30px;
+    height: 17px;
   }
   
   /* Hide default HTML checkbox */
@@ -50,10 +79,10 @@
   .slider:before {
     position: absolute;
     content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
+    height: 13px;
+    width: 13px;
+    left: 2px;
+    bottom: 2px;
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
@@ -68,9 +97,9 @@
   }
   
   input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
+    -webkit-transform: translateX(13px);
+    -ms-transform: translateX(13px);
+    transform: translateX(13px);
   }
   
   /* Rounded sliders */

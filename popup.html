@@ -7,15 +7,24 @@
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans" />
   </head>
   <body>
-    <span><img src="rfrshicon_44.png" /><text>RFRSH</text></span>
+    <span class="header">
+        <img src="rfrshicon_44.png" />
+        <text class="header">RFRSH</text>
+      </span>
     <br/>
-    <label id="tabName"></label>
-    <input id="interval" type="number">
+    <label id="tabName" class="general" text-align="center"></label>
     <br/>
-    <label class="switch">
-      <input id="cbxRefresh" type="checkbox">
-      <span class="slider round"></span>
-    </label>
+        <input id="interval" class="interval" type="number">
+    <br/>
+    <span class="status">
+      <text id="tbxStatus" class="general">Stopped</text>
+      <span class="switch">
+        <label class="switch">
+          <input id="cbxRefresh" type="checkbox">
+          <span class="slider round"></span>
+        </label>
+    </span>
+  </span>
     <br/>
   </body>
 </html>
